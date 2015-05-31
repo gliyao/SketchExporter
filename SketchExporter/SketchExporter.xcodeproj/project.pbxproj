@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A7E0FFB1B1B4C9A00066814 /* do_sketch.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8A7E0FFA1B1B4C9A00066814 /* do_sketch.sh */; };
 		8ACE81621B1AD653002610DA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACE81611B1AD653002610DA /* AppKit.framework */; };
 		8ACE81641B1AD653002610DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACE81631B1AD653002610DA /* Foundation.framework */; };
 		8ACE81691B1AD653002610DA /* SketchExporter.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE81681B1AD653002610DA /* SketchExporter.xcscheme */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A7E0FFA1B1B4C9A00066814 /* do_sketch.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = do_sketch.sh; sourceTree = "<group>"; };
 		8ACE815E1B1AD653002610DA /* SketchExporter.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SketchExporter.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACE81611B1AD653002610DA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		8ACE81631B1AD653002610DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -72,6 +74,7 @@
 				8ACE816B1B1AD653002610DA /* SketchExporter.m */,
 				8ACE816D1B1AD653002610DA /* NSObject_Extension.h */,
 				8ACE816E1B1AD653002610DA /* NSObject_Extension.m */,
+				8A7E0FFA1B1B4C9A00066814 /* do_sketch.sh */,
 				8ACE81661B1AD653002610DA /* Supporting Files */,
 			);
 			path = SketchExporter;
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ACE81691B1AD653002610DA /* SketchExporter.xcscheme in Resources */,
+				8A7E0FFB1B1B4C9A00066814 /* do_sketch.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

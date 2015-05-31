@@ -53,10 +53,104 @@
 // Sample Action, for menu item:
 - (void)doMenuAction
 {
+    NSString *sketchPath = [[self urlWithSelectedFile] path];
+    NSString *workspacePath = [self getWorksapcePath];
+    NSString *projectDir = workspacePath.stringByDeletingLastPathComponent;
+    NSLog(@"dir %@",projectDir);
+    NSString *imageAssetsPath = [self getImagesAssetsFolderPathWithWorkspacePath:workspacePath];
+    
+  
+    if([sketchPath length] == 0 || [workspacePath length] == 0 || [imageAssetsPath length] == 0) {
+        return;
+    }
+    
+    // get script file path
+    NSString *shFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"do_sketch" ofType:@"sh"];
+    shFilePath = [self replaceSpaceIfNeed:shFilePath];
+    projectDir = [self replaceSpaceIfNeed:projectDir];
+    sketchPath = [self replaceSpaceIfNeed:sketchPath];
+    imageAssetsPath = [self replaceSpaceIfNeed:imageAssetsPath];
+    
+    NSString *script = [NSString stringWithFormat:@"sh %@ %@ %@ %@", shFilePath, projectDir, sketchPath, imageAssetsPath];
+
+    // run shell script
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/bin/bash";
+    task.arguments = @[@"-l", @"-c", script];
+    [task launch];
+}
+
+- (NSString *)replaceSpaceIfNeed:(NSString *)string
+{
+    return [string stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+}
+
+- (NSString *)getWorksapcePath
+{
+    NSArray *workspaceWindowControllers = [NSClassFromString(@"IDEWorkspaceWindowController") valueForKey:@"workspaceWindowControllers"];
+    
+    id workspace;
+    for(id controller in workspaceWindowControllers){
+        if([[controller valueForKey:@"window"] isEqual:[NSApp keyWindow]]){
+            workspace = [controller valueForKey:@"_workspace"];
+        }
+    }
+    
+    NSString *workspacePath = [[workspace valueForKey:@"representingFilePath"] valueForKey:@"_pathString"];
+    return workspacePath;
+}
+
+- (NSString *)getImagesAssetsFolderPathWithWorkspacePath:(NSString *)workspacePath
+{
+    NSString *homePath = workspacePath.stringByDeletingLastPathComponent;
+    NSError *e = nil;
+    NSArray *list = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:homePath error:&e];
+    if(e){
+        return @"";
+    }
+    
+    NSString *ImagesXcassetsPath = @"";
+    for(NSString *item in list){
+        if([item containsString:@"AppDelegate.h"]){
+            ImagesXcassetsPath = [[homePath stringByAppendingPathComponent:item.stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Images.xcassets"];
+        }
+    }
+    return ImagesXcassetsPath;
+}
+
+- (NSString *)applicationDocumentsDirectory
+{
+    // Get the documents directory
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    return docsDir;
+}
+
+- (void)showAlertWithMsg:(NSString *)msg
+{
     NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:@"Hello, World"];
+    [alert setMessageText:msg];
     [alert runModal];
 }
+
+- (NSURL *)urlWithSelectedFile
+{
+    // get sketch file path
+    NSOpenPanel *openPanel = [[NSOpenPanel alloc]init];
+    openPanel.allowedFileTypes = @[@"sketch"];
+    openPanel.canChooseFiles = YES;
+    openPanel.canCreateDirectories = NO;
+    openPanel.allowsMultipleSelection = NO;
+    
+    BOOL isFileSelection = [openPanel runModal];
+    if(isFileSelection == NSFileHandlingPanelCancelButton){
+        return nil;
+    }
+    
+    NSURL *fileURL = openPanel.URL;
+    return fileURL;
+}
+
 
 - (void)dealloc
 {
