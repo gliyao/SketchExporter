@@ -1,0 +1,287 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8ACE81621B1AD653002610DA /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACE81611B1AD653002610DA /* AppKit.framework */; };
+		8ACE81641B1AD653002610DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ACE81631B1AD653002610DA /* Foundation.framework */; };
+		8ACE81691B1AD653002610DA /* SketchExporter.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE81681B1AD653002610DA /* SketchExporter.xcscheme */; };
+		8ACE816C1B1AD653002610DA /* SketchExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE816B1B1AD653002610DA /* SketchExporter.m */; };
+		8ACE816F1B1AD653002610DA /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE816E1B1AD653002610DA /* NSObject_Extension.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8ACE815E1B1AD653002610DA /* SketchExporter.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SketchExporter.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACE81611B1AD653002610DA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		8ACE81631B1AD653002610DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8ACE81671B1AD653002610DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8ACE81681B1AD653002610DA /* SketchExporter.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = SketchExporter.xcscheme; path = SketchExporter.xcodeproj/xcshareddata/xcschemes/SketchExporter.xcscheme; sourceTree = SOURCE_ROOT; };
+		8ACE816A1B1AD653002610DA /* SketchExporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SketchExporter.h; sourceTree = "<group>"; };
+		8ACE816B1B1AD653002610DA /* SketchExporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SketchExporter.m; sourceTree = "<group>"; };
+		8ACE816D1B1AD653002610DA /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
+		8ACE816E1B1AD653002610DA /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8ACE815C1B1AD653002610DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE81621B1AD653002610DA /* AppKit.framework in Frameworks */,
+				8ACE81641B1AD653002610DA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8ACE81551B1AD653002610DA = {
+			isa = PBXGroup;
+			children = (
+				8ACE81651B1AD653002610DA /* SketchExporter */,
+				8ACE81601B1AD653002610DA /* Frameworks */,
+				8ACE815F1B1AD653002610DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8ACE815F1B1AD653002610DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE815E1B1AD653002610DA /* SketchExporter.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8ACE81601B1AD653002610DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE81611B1AD653002610DA /* AppKit.framework */,
+				8ACE81631B1AD653002610DA /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8ACE81651B1AD653002610DA /* SketchExporter */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE816A1B1AD653002610DA /* SketchExporter.h */,
+				8ACE816B1B1AD653002610DA /* SketchExporter.m */,
+				8ACE816D1B1AD653002610DA /* NSObject_Extension.h */,
+				8ACE816E1B1AD653002610DA /* NSObject_Extension.m */,
+				8ACE81661B1AD653002610DA /* Supporting Files */,
+			);
+			path = SketchExporter;
+			sourceTree = "<group>";
+		};
+		8ACE81661B1AD653002610DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE81671B1AD653002610DA /* Info.plist */,
+				8ACE81681B1AD653002610DA /* SketchExporter.xcscheme */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8ACE815D1B1AD653002610DA /* SketchExporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ACE81721B1AD653002610DA /* Build configuration list for PBXNativeTarget "SketchExporter" */;
+			buildPhases = (
+				8ACE815A1B1AD653002610DA /* Sources */,
+				8ACE815B1B1AD653002610DA /* Resources */,
+				8ACE815C1B1AD653002610DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SketchExporter;
+			productName = SketchExporter;
+			productReference = 8ACE815E1B1AD653002610DA /* SketchExporter.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8ACE81561B1AD653002610DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Liyao;
+				TargetAttributes = {
+					8ACE815D1B1AD653002610DA = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = 8ACE81591B1AD653002610DA /* Build configuration list for PBXProject "SketchExporter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8ACE81551B1AD653002610DA;
+			productRefGroup = 8ACE815F1B1AD653002610DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8ACE815D1B1AD653002610DA /* SketchExporter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8ACE815B1B1AD653002610DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE81691B1AD653002610DA /* SketchExporter.xcscheme in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8ACE815A1B1AD653002610DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE816C1B1AD653002610DA /* SketchExporter.m in Sources */,
+				8ACE816F1B1AD653002610DA /* NSObject_Extension.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8ACE81701B1AD653002610DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		8ACE81711B1AD653002610DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+			};
+			name = Release;
+		};
+		8ACE81731B1AD653002610DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = SketchExporter/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		8ACE81741B1AD653002610DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				INFOPLIST_FILE = SketchExporter/Info.plist;
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8ACE81591B1AD653002610DA /* Build configuration list for PBXProject "SketchExporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACE81701B1AD653002610DA /* Debug */,
+				8ACE81711B1AD653002610DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ACE81721B1AD653002610DA /* Build configuration list for PBXNativeTarget "SketchExporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACE81731B1AD653002610DA /* Debug */,
+				8ACE81741B1AD653002610DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8ACE81561B1AD653002610DA /* Project object */;
+}
