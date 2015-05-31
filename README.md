@@ -13,7 +13,7 @@ Your don't need manage assets manually. This plugin help you export all assets y
 2. Slices for your icons. (Slice name as assets name)
 
 ## Step
-Select your .sktch file
+Select your .sketch file
 
 ## Related link
 https://github.com/gliyao/SketchToXcode
