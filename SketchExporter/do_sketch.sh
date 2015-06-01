@@ -1,5 +1,6 @@
 #!/bin/bash -l
 
+command -v sketchtool >/dev/null 2>&1 || { echo >&2 "I require sketchtool but it's not installed.  Aborting."; exit 1; }
 # PROJECT_DIR="/Users/Liyao/projects/AdoptTaipei"
 # SKETCH_PATH="/Users/Liyao/projects/AdoptTaipei/AdoptTaipei.sketch"
 # ASSETS_PATH="/Users/Liyao/projects/AdoptTaipei/AdoptTaipei/Images.xcassets"
