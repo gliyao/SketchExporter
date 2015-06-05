@@ -43,10 +43,13 @@
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
     if (menuItem) {
         [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Export Sketch assests" action:@selector(doMenuAction) keyEquivalent:@""];
-        //[actionMenuItem setKeyEquivalentModifierMask:NSAlphaShiftKeyMask | NSControlKeyMask];
+        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Import Sketch assests with 2x" action:@selector(doMenuAction) keyEquivalent:@""];
         [actionMenuItem setTarget:self];
         [[menuItem submenu] addItem:actionMenuItem];
+		
+		NSMenuItem *actionMenuItem2 = [[NSMenuItem alloc] initWithTitle:@"Import Sketch assests with 1x" action:@selector(doMenuAction2) keyEquivalent:@""];
+		[actionMenuItem2 setTarget:self];
+		[[menuItem submenu] addItem:actionMenuItem2];
     }
 }
 
@@ -78,6 +81,35 @@
     task.launchPath = @"/bin/bash";
     task.arguments = @[@"-l", @"-c", script];
     [task launch];
+}
+
+- (void)doMenuAction2
+{
+	NSString *sketchPath = [[self urlWithSelectedFile] path];
+	NSString *workspacePath = [self getWorksapcePath];
+	NSString *projectDir = workspacePath.stringByDeletingLastPathComponent;
+	NSLog(@"dir %@",projectDir);
+	NSString *imageAssetsPath = [self getImagesAssetsFolderPathWithWorkspacePath:workspacePath];
+	
+	
+	if([sketchPath length] == 0 || [workspacePath length] == 0 || [imageAssetsPath length] == 0) {
+		return;
+	}
+	
+	// get script file path
+	NSString *shFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"do_sketch1" ofType:@"sh"];
+	shFilePath = [self replaceSpaceIfNeed:shFilePath];
+	projectDir = [self replaceSpaceIfNeed:projectDir];
+	sketchPath = [self replaceSpaceIfNeed:sketchPath];
+	imageAssetsPath = [self replaceSpaceIfNeed:imageAssetsPath];
+	
+	NSString *script = [NSString stringWithFormat:@"sh %@ %@ %@ %@", shFilePath, projectDir, sketchPath, imageAssetsPath];
+	
+	// run shell script
+	NSTask *task = [[NSTask alloc] init];
+	task.launchPath = @"/bin/bash";
+	task.arguments = @[@"-l", @"-c", script];
+	[task launch];
 }
 
 - (NSString *)replaceSpaceIfNeed:(NSString *)string

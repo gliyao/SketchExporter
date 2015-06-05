@@ -211,7 +211,6 @@ echo `pwd`
 sketchtool export slices "$SKETCH_PATH" \
 --output="$ICONS_DIR" \
 --formats="pdf"
---scales="0.5"
 
 # create assets to XCode
 cd $ICONS_DIR
