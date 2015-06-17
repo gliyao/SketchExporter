@@ -219,7 +219,7 @@ cd $ICONS_DIR
 for file in *.pdf
 do
 
-fname=${file%%.*}
+fname=${file%%@*}
 
 # create imageset file
 assets_name="$fname".imageset
