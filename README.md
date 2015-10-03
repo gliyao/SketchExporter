@@ -15,6 +15,12 @@ Your don't need manage assets manually. This plugin help you export all assets y
 ## Step
 Select your .sketch file
 
+## 3 action for 3 purpose
+1. import AppIcon
+2. import slices as .pdf
+3. import slices as .png
+
+
 ## Related link
 https://github.com/gliyao/SketchToXcode
 
