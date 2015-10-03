@@ -14,6 +14,9 @@
 		8ACE81691B1AD653002610DA /* SketchExporter.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE81681B1AD653002610DA /* SketchExporter.xcscheme */; };
 		8ACE816C1B1AD653002610DA /* SketchExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE816B1B1AD653002610DA /* SketchExporter.m */; };
 		8ACE816F1B1AD653002610DA /* NSObject_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE816E1B1AD653002610DA /* NSObject_Extension.m */; };
+		8AE736421BBFF947003AFEDB /* do_sketch_app_icon.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8AE7363F1BBFF947003AFEDB /* do_sketch_app_icon.sh */; settings = {ASSET_TAGS = (); }; };
+		8AE736431BBFF947003AFEDB /* do_sketch_pdf_slices.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8AE736401BBFF947003AFEDB /* do_sketch_pdf_slices.sh */; settings = {ASSET_TAGS = (); }; };
+		8AE736441BBFF947003AFEDB /* do_sketch_png_slices.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8AE736411BBFF947003AFEDB /* do_sketch_png_slices.sh */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		8ACE816B1B1AD653002610DA /* SketchExporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SketchExporter.m; sourceTree = "<group>"; };
 		8ACE816D1B1AD653002610DA /* NSObject_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Extension.h; sourceTree = "<group>"; };
 		8ACE816E1B1AD653002610DA /* NSObject_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSObject_Extension.m; sourceTree = "<group>"; };
+		8AE7363F1BBFF947003AFEDB /* do_sketch_app_icon.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = do_sketch_app_icon.sh; sourceTree = "<group>"; };
+		8AE736401BBFF947003AFEDB /* do_sketch_pdf_slices.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = do_sketch_pdf_slices.sh; sourceTree = "<group>"; };
+		8AE736411BBFF947003AFEDB /* do_sketch_png_slices.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = do_sketch_png_slices.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,12 +78,11 @@
 		8ACE81651B1AD653002610DA /* SketchExporter */ = {
 			isa = PBXGroup;
 			children = (
+				8AE736451BBFF951003AFEDB /* scripts */,
 				8ACE816A1B1AD653002610DA /* SketchExporter.h */,
 				8ACE816B1B1AD653002610DA /* SketchExporter.m */,
 				8ACE816D1B1AD653002610DA /* NSObject_Extension.h */,
 				8ACE816E1B1AD653002610DA /* NSObject_Extension.m */,
-				8A7E0FFA1B1B4C9A00066814 /* do_sketch.sh */,
-				8A2ACBB91B219B8D00251837 /* do_sketch1.sh */,
 				8ACE81661B1AD653002610DA /* Supporting Files */,
 			);
 			path = SketchExporter;
@@ -92,6 +97,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8AE736451BBFF951003AFEDB /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				8AE7363F1BBFF947003AFEDB /* do_sketch_app_icon.sh */,
+				8AE736401BBFF947003AFEDB /* do_sketch_pdf_slices.sh */,
+				8AE736411BBFF947003AFEDB /* do_sketch_png_slices.sh */,
+				8A7E0FFA1B1B4C9A00066814 /* do_sketch.sh */,
+				8A2ACBB91B219B8D00251837 /* do_sketch1.sh */,
+			);
+			name = scripts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +119,7 @@
 				8ACE815A1B1AD653002610DA /* Sources */,
 				8ACE815B1B1AD653002610DA /* Resources */,
 				8ACE815C1B1AD653002610DA /* Frameworks */,
+				8AE7363E1BBFF88D003AFEDB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -149,12 +167,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				8ACE81691B1AD653002610DA /* SketchExporter.xcscheme in Resources */,
+				8AE736431BBFF947003AFEDB /* do_sketch_pdf_slices.sh in Resources */,
 				8A7E0FFB1B1B4C9A00066814 /* do_sketch.sh in Resources */,
+				8AE736421BBFF947003AFEDB /* do_sketch_app_icon.sh in Resources */,
+				8AE736441BBFF947003AFEDB /* do_sketch_png_slices.sh in Resources */,
 				8A2ACBBA1B219B8D00251837 /* do_sketch1.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8AE7363E1BBFF88D003AFEDB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#/usr/libexec/PlistBuddy -c 'Print DVTPlugInCompatibilityUUID' \"$(xcode-select -p)/../Info.plist\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8ACE815A1B1AD653002610DA /* Sources */ = {

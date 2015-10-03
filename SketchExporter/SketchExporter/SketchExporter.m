@@ -43,74 +43,54 @@
     NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
     if (menuItem) {
         [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-        NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Import Sketch assests with 2x" action:@selector(doMenuAction) keyEquivalent:@""];
-        [actionMenuItem setTarget:self];
-        [[menuItem submenu] addItem:actionMenuItem];
-		
-		NSMenuItem *actionMenuItem2 = [[NSMenuItem alloc] initWithTitle:@"Import Sketch assests with 1x" action:@selector(doMenuAction2) keyEquivalent:@""];
-		[actionMenuItem2 setTarget:self];
-		[[menuItem submenu] addItem:actionMenuItem2];
+        [[menuItem submenu] addItem:[self menuItemWithTitle:@"Import Sketch AppIcon" scriptName:@"do_sketch_app_icon"]];
+        [[menuItem submenu] addItem:[self menuItemWithTitle:@"Import Sketch slices as .pdf" scriptName:@"do_sketch_pdf_slices"]];
+        [[menuItem submenu] addItem:[self menuItemWithTitle:@"Import Sketch slices as .png" scriptName:@"do_sketch_png_slices"]];
     }
 }
 
-// Sample Action, for menu item:
-- (void)doMenuAction
+- (NSMenuItem *)menuItemWithTitle:(NSString *)title scriptName:(NSString *)scriptName
 {
+    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:title action:@selector(doMenuActionWithScriptName:) keyEquivalent:@""];
+    [item setRepresentedObject:scriptName];
+    [item setTarget:self];
+    return item;
+}
+
+- (void)doMenuActionWithScriptName:(id)sender
+{
+    NSLog(@"The menu item's object is %@",[sender representedObject]);
+    NSString *scriptName = [sender representedObject];
+    
     NSString *sketchPath = [[self urlWithSelectedFile] path];
     NSString *workspacePath = [self getWorksapcePath];
     NSString *projectDir = workspacePath.stringByDeletingLastPathComponent;
     NSLog(@"dir %@",projectDir);
     NSString *imageAssetsPath = [self getImagesAssetsFolderPathWithWorkspacePath:workspacePath];
     
-  
+    
     if([sketchPath length] == 0 || [workspacePath length] == 0 || [imageAssetsPath length] == 0) {
         return;
     }
     
     // get script file path
-    NSString *shFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"do_sketch" ofType:@"sh"];
+    NSString *shFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:scriptName ofType:@"sh"];
     shFilePath = [self replaceSpaceIfNeed:shFilePath];
     projectDir = [self replaceSpaceIfNeed:projectDir];
     sketchPath = [self replaceSpaceIfNeed:sketchPath];
     imageAssetsPath = [self replaceSpaceIfNeed:imageAssetsPath];
     
     NSString *script = [NSString stringWithFormat:@"sh %@ %@ %@ %@", shFilePath, projectDir, sketchPath, imageAssetsPath];
-
+    
     // run shell script
     NSTask *task = [[NSTask alloc] init];
     task.launchPath = @"/bin/bash";
     task.arguments = @[@"-l", @"-c", script];
     [task launch];
+
 }
 
-- (void)doMenuAction2
-{
-	NSString *sketchPath = [[self urlWithSelectedFile] path];
-	NSString *workspacePath = [self getWorksapcePath];
-	NSString *projectDir = workspacePath.stringByDeletingLastPathComponent;
-	NSLog(@"dir %@",projectDir);
-	NSString *imageAssetsPath = [self getImagesAssetsFolderPathWithWorkspacePath:workspacePath];
-	
-	
-	if([sketchPath length] == 0 || [workspacePath length] == 0 || [imageAssetsPath length] == 0) {
-		return;
-	}
-	
-	// get script file path
-	NSString *shFilePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"do_sketch1" ofType:@"sh"];
-	shFilePath = [self replaceSpaceIfNeed:shFilePath];
-	projectDir = [self replaceSpaceIfNeed:projectDir];
-	sketchPath = [self replaceSpaceIfNeed:sketchPath];
-	imageAssetsPath = [self replaceSpaceIfNeed:imageAssetsPath];
-	
-	NSString *script = [NSString stringWithFormat:@"sh %@ %@ %@ %@", shFilePath, projectDir, sketchPath, imageAssetsPath];
-	
-	// run shell script
-	NSTask *task = [[NSTask alloc] init];
-	task.launchPath = @"/bin/bash";
-	task.arguments = @[@"-l", @"-c", script];
-	[task launch];
-}
+#pragma mark - Private methods
 
 - (NSString *)replaceSpaceIfNeed:(NSString *)string
 {
