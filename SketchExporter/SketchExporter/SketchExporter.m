@@ -62,11 +62,11 @@
     NSLog(@"The menu item's object is %@",[sender representedObject]);
     NSString *scriptName = [sender representedObject];
     
-    NSString *sketchPath = [[self urlWithSelectedFile] path];
+    NSString *sketchPath = [[self urlWithSelectedFileType:@"sketch"] path];
     NSString *workspacePath = [self getWorksapcePath];
     NSString *projectDir = workspacePath.stringByDeletingLastPathComponent;
     NSLog(@"dir %@",projectDir);
-    NSString *imageAssetsPath = [self getImagesAssetsFolderPathWithWorkspacePath:workspacePath];
+    NSString *imageAssetsPath = [[self urlWithSelectedFileType:@"xcassets"] path];
     
     
     if([sketchPath length] == 0 || [workspacePath length] == 0 || [imageAssetsPath length] == 0) {
@@ -125,6 +125,8 @@
     for(NSString *item in list){
         if([item containsString:@"AppDelegate.h"]){
             ImagesXcassetsPath = [[homePath stringByAppendingPathComponent:item.stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"Images.xcassets"];
+            NSLog(@"found asset path: %@",ImagesXcassetsPath);
+            break;
         }
     }
     return ImagesXcassetsPath;
@@ -145,11 +147,11 @@
     [alert runModal];
 }
 
-- (NSURL *)urlWithSelectedFile
+- (NSURL *)urlWithSelectedFileType:(NSString*)fileType
 {
     // get sketch file path
     NSOpenPanel *openPanel = [[NSOpenPanel alloc]init];
-    openPanel.allowedFileTypes = @[@"sketch"];
+    openPanel.allowedFileTypes = @[fileType];
     openPanel.canChooseFiles = YES;
     openPanel.canCreateDirectories = NO;
     openPanel.allowsMultipleSelection = NO;
@@ -162,6 +164,10 @@
     NSURL *fileURL = openPanel.URL;
     return fileURL;
 }
+
+
+
+
 
 
 - (void)dealloc
